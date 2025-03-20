@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour
     public float speed = 10;
     Vector2 movement;
     Rigidbody2D rb;
+    Weapon weapon;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
+        weapon = GetComponent<Weapon>();
     }
 
     private void FixedUpdate() {
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Shoot(InputAction.CallbackContext context) {
-        Debug.Log("Pew");
+        if(context.performed) {
+            weapon.ShootBullet();
+        }
     }
 }

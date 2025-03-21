@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IShootable
 {
+    public Team team;
     public float speed = 10;
     Vector2 movement;
     Rigidbody2D rb;
@@ -35,5 +36,17 @@ public class PlayerController : MonoBehaviour
         if(context.performed) {
             weapon.ShootBullet();
         }
+    }
+
+    public void OnShot(Bullet bullet) {
+         if(bullet.team != team) {
+            Destroy(this.gameObject);
+        } else {
+            Debug.Log("aaaa");
+        }
+    }
+
+    public Team GetTeam() {
+        return team;
     }
 }

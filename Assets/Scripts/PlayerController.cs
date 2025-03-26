@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour, IShootable
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
-        weapon = GetComponent<Weapon>();
+        weapon = GetComponentInChildren<Weapon>();
     }
 
     private void FixedUpdate() {

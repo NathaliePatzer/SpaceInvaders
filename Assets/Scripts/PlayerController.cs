@@ -41,9 +41,7 @@ public class PlayerController : MonoBehaviour, IShootable
     public void OnShot(Bullet bullet) {
          if(bullet.team != team) {
             Destroy(this.gameObject);
-        } else {
-            Debug.Log("aaaa");
-        }
+        } 
     }
 
     public Team GetTeam() {

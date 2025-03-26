@@ -5,6 +5,8 @@ using UnityEngine;
 public class Alien : MonoBehaviour, IShootable
 {
     public Team team;
+
+    [HideInInspector]
     public Weapon weapon;
 
     void Awake() {

@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
+  weapon: {fileID: 0}
 --- !u!114 &-2630634456529938893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259d7d6067d532046b1787cfe5f70020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: -2651163762449428943, guid: 7d3a7d7521a15c3429108b6f7ccc54ff, type: 3}
+  bullet: {fileID: 2411158820384634525, guid: c97126c0a31b59f4fb6cf3e2e82cd21d, type: 3}
   bulletDirection: {x: 0, y: -1}
   bulletSpeed: 10

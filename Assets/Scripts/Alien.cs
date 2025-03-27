@@ -8,9 +8,11 @@ public class Alien : MonoBehaviour, IShootable
 
     [HideInInspector]
     public Weapon weapon;
+    Animator animator;
 
     void Awake() {
         weapon = GetComponentInChildren<Weapon>();
+        animator = GetComponent<Animator>();
     }
 
     void Start() {
@@ -23,7 +25,7 @@ public class Alien : MonoBehaviour, IShootable
 
     public void OnShot(Bullet bullet) {
         bullet.speed = 0;
-        Destroy(this.gameObject);
+        animator.SetTrigger("Death");
     }
 
     IEnumerator AlienShooting() {

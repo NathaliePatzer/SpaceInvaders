@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 8267007312597136426, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a873ed1ce96075948ae241dc1f3035c5, type: 2}
+      objectReference: {fileID: 22100000, guid: 745a908ab644e0e458d62b47a9630a92, type: 2}
     - target: {fileID: 8267007312597136427, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_Name
       value: PurpleAlien

@@ -11,10 +11,13 @@ public class PlayerController : MonoBehaviour, IShootable
     Vector2 movement;
     Rigidbody2D rb;
     Weapon weapon;
+    Animator animator;
+    public int lives = 3;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         weapon = GetComponentInChildren<Weapon>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate() {
@@ -40,7 +43,9 @@ public class PlayerController : MonoBehaviour, IShootable
 
     public void OnShot(Bullet bullet) {
         bullet.speed = 0;
-        Destroy(this.gameObject);      
+        lives--;
+        animator.SetTrigger("Death");
+        animator.SetInteger("Lives", lives);      
     }
 
     public Team GetTeam() {

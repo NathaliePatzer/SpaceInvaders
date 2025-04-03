@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour, IShootable
     Weapon weapon;
     Animator animator;
     public int lives = 3;
+    Collider2D coll;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponent<Animator>();
+        coll = GetComponent<Collider2D>();
     }
 
     private void FixedUpdate() {
@@ -45,10 +47,17 @@ public class PlayerController : MonoBehaviour, IShootable
         bullet.speed = 0;
         lives--;
         animator.SetTrigger("Death");
-        animator.SetInteger("Lives", lives);      
+        animator.SetInteger("Lives", lives);   
+        StartCoroutine(Invencible());  
     }
 
     public Team GetTeam() {
         return team;
+    }
+
+    IEnumerator Invencible() {
+        coll.enabled = false;
+        yield return new WaitForSeconds(1.5f);
+        coll.enabled = true;
     }
 }

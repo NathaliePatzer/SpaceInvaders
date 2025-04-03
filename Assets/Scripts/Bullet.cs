@@ -17,14 +17,17 @@ public class Bullet : MonoBehaviour
     public float speed;
     Rigidbody2D rb;
     Animator animator;
+    Collider2D coll;
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        coll = GetComponent<Collider2D>();
     }
     private void FixedUpdate() {
         rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
     }
     private void OnTriggerEnter2D(Collider2D collision) {
+        
         IShootable shootable = collision.GetComponent<IShootable>();
         if(shootable != null) { 
             if(shootable.GetTeam() != team) {
@@ -35,6 +38,6 @@ public class Bullet : MonoBehaviour
         }
         speed = 0;
         animator.SetTrigger("Hit");
-        //Destroy(this.gameObject);
+        coll.enabled = false;
     }
 }

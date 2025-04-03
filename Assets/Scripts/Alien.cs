@@ -26,6 +26,7 @@ public class Alien : MonoBehaviour, IShootable
     public void OnShot(Bullet bullet) {
         bullet.speed = 0;
         animator.SetTrigger("Death");
+        GetComponent<Collider2D>().enabled = false;
     }
 
     IEnumerator AlienShooting() {

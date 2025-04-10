@@ -9,14 +9,11 @@ public class Alien : MonoBehaviour, IShootable
     [HideInInspector]
     public Weapon weapon;
     Animator animator;
+    public Vector2Int matrixPos;
 
     void Awake() {
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponent<Animator>();
-    }
-
-    void Start() {
-        StartCoroutine(AlienShooting());
     }
 
     public Team GetTeam() {
@@ -27,6 +24,11 @@ public class Alien : MonoBehaviour, IShootable
         bullet.speed = 0;
         animator.SetTrigger("Death");
         GetComponent<Collider2D>().enabled = false;
+        AlienController.Instance.OnAlienDeath(matrixPos);
+    }
+
+    public void StartShooting() {
+        StartCoroutine(AlienShooting());
     }
 
     IEnumerator AlienShooting() {

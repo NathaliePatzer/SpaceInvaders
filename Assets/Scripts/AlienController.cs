@@ -9,27 +9,32 @@ using UnityEngine.Video;
 public class AlienController : MonoBehaviour
 {
     public static AlienController Instance;
+    public float alienSpeed = 0.1f;
+    public float movementDelay = 0.1f;
     public Alien[,] aliens = new Alien[16, 5];
     void Awake()
     {
         Instance = this;
         SetMatrix();
         SetInitialShooting();
+        StartCoroutine(Movement());
     }
 
-    public void OnAlienDeath(Vector2Int matrixPos) {
+    public void OnAlienDeath(Vector2Int matrixPos)
+    {
         StopAllCoroutines();
-        if(matrixPos.y+1 >= aliens.GetLength(1)) {
+        if (matrixPos.y + 1 >= aliens.GetLength(1))
+        {
             return;
         }
-        Alien nextAlien = aliens[matrixPos.x, matrixPos.y+1];
+        Alien nextAlien = aliens[matrixPos.x, matrixPos.y + 1];
         nextAlien.StartShooting();
     }
 
     void SetMatrix()
     {
         Alien[] alienGOs = GetComponentsInChildren<Alien>();
-        float offsetX = 7;
+        float offsetX = 8;
         float offsetY = -0.25f;
         foreach (Alien a in alienGOs)
         {
@@ -45,8 +50,26 @@ public class AlienController : MonoBehaviour
     {
         for (int i = 0; i < aliens.GetLength(0); i++)
         {
-            aliens[i,0].StartShooting();
+            aliens[i, 0].StartShooting();
         }
 
+    }
+
+    IEnumerator Movement()
+    {
+        Vector2 direction = Vector2.right;
+        while (true)
+        {
+            for (int i = 0; i < aliens.GetLength(1); i++)
+            {
+                for (int j = 0; j < aliens.GetLength(0); j++)
+                {
+                    aliens[j, i].MoveTo(direction, alienSpeed);
+                }
+                yield return new WaitForSeconds(movementDelay);
+            }
+            
+        }
+        
     }
 }

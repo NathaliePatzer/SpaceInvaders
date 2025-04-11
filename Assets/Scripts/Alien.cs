@@ -10,35 +10,49 @@ public class Alien : MonoBehaviour, IShootable
     public Weapon weapon;
     Animator animator;
     public Vector2Int matrixPos;
+    Rigidbody2D rb;
 
-    void Awake() {
+    void Awake()
+    {
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    public Team GetTeam() {
+    public Team GetTeam()
+    {
         return team;
     }
 
-    public void OnShot(Bullet bullet) {
+    public void OnShot(Bullet bullet)
+    {
         bullet.speed = 0;
         animator.SetTrigger("Death");
         GetComponent<Collider2D>().enabled = false;
         AlienController.Instance.OnAlienDeath(matrixPos);
     }
 
-    public void StartShooting() {
+    public void StartShooting()
+    {
         StartCoroutine(AlienShooting());
     }
 
-    IEnumerator AlienShooting() {
-        while(true) {
-            yield return new WaitForSeconds(Random.Range(3,15));
-            Shoot();
-        }     
+    public void MoveTo(Vector2 direction, float speed)
+    {
+        rb.MovePosition(rb.position + direction * speed);
     }
 
-    void Shoot() {
+    IEnumerator AlienShooting()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(3, 15));
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
         weapon.ShootBullet();
     }
 }

@@ -11,7 +11,8 @@ public class AlienController : MonoBehaviour
     public static AlienController Instance;
     public float alienSpeed = 0.1f;
     public float movementDelay = 0.1f;
-    public Alien[,] aliens = new Alien[16, 5];
+    public Vector2 direction = Vector2.right;
+    public Alien[,] aliens = new Alien[15, 5];
     void Awake()
     {
         Instance = this;
@@ -22,7 +23,7 @@ public class AlienController : MonoBehaviour
 
     public void OnAlienDeath(Vector2Int matrixPos)
     {
-        StopAllCoroutines();
+        //StopAllCoroutines();
         if (matrixPos.y + 1 >= aliens.GetLength(1))
         {
             return;
@@ -57,14 +58,17 @@ public class AlienController : MonoBehaviour
 
     IEnumerator Movement()
     {
-        Vector2 direction = Vector2.right;
+        
         while (true)
         {
+            Vector2 currentDirection = direction;
             for (int i = 0; i < aliens.GetLength(1); i++)
             {
                 for (int j = 0; j < aliens.GetLength(0); j++)
                 {
-                    aliens[j, i].MoveTo(direction, alienSpeed);
+                    if(aliens[j,i] != null) {
+                        aliens[j, i].MoveTo(currentDirection, alienSpeed);
+                    }  
                 }
                 yield return new WaitForSeconds(movementDelay);
             }

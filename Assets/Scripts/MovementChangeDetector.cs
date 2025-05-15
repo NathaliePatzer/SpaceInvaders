@@ -13,7 +13,9 @@ public class MovementChangeDetector : MonoBehaviour
         Bullet bullet;
         if (coll.transform == wall)
         {
-            AlienController.Instance.direction = direction;
+            AlienController.Instance.direction.Clear();
+            AlienController.Instance.direction.Enqueue(Vector2.down);
+            AlienController.Instance.direction.Enqueue(direction);
         }
         if (coll.TryGetComponent<Bullet>(out bullet) && bullet.team == Team.Player)
         {

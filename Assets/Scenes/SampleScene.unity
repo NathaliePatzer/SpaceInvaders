@@ -2372,6 +2372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8476e1f2666d9b4895fbc752cb09fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: -1, y: 0}
+  wall: {fileID: 1582568427}
 --- !u!1001 &1133250340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4872,6 +4874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8476e1f2666d9b4895fbc752cb09fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: 1, y: 0}
+  wall: {fileID: 178580069}
 --- !u!1001 &1987608919
 PrefabInstance:
   m_ObjectHideFlags: 0

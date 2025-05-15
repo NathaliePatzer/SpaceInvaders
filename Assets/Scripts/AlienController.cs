@@ -11,10 +11,12 @@ public class AlienController : MonoBehaviour
     public static AlienController Instance;
     public float alienSpeed = 0.1f;
     public float movementDelay = 0.1f;
-    public Vector2 direction = Vector2.right;
+    public Queue<Vector2> direction;
     public Alien[,] aliens = new Alien[15, 5];
     void Awake()
     {
+        direction = new Queue<Vector2>();
+        direction.Enqueue(Vector2.right);
         Instance = this;
         SetMatrix();
         SetInitialShooting();
@@ -23,12 +25,16 @@ public class AlienController : MonoBehaviour
 
     public void OnAlienDeath(Vector2Int matrixPos)
     {
-        //StopAllCoroutines();
-        if (matrixPos.y + 1 >= aliens.GetLength(1))
+        Alien nextAlien = null;
+        for (int i = matrixPos.y+1; i < aliens.GetLength(1) && nextAlien == null; i++)
+        {
+            nextAlien = aliens[matrixPos.x, i];
+        }
+        if (nextAlien == null)
         {
             return;
         }
-        Alien nextAlien = aliens[matrixPos.x, matrixPos.y + 1];
+
         nextAlien.StartShooting();
     }
 
@@ -36,7 +42,7 @@ public class AlienController : MonoBehaviour
     {
         Alien[] alienGOs = GetComponentsInChildren<Alien>();
         float offsetX = 8;
-        float offsetY = -0.25f;
+        float offsetY = -1.44f; //valor do Y do alien mais inferior à esquerda 
         foreach (Alien a in alienGOs)
         {
             int xPos = Mathf.FloorToInt(a.transform.localPosition.x + offsetX);
@@ -58,22 +64,27 @@ public class AlienController : MonoBehaviour
 
     IEnumerator Movement()
     {
-        
+
         while (true)
         {
-            Vector2 currentDirection = direction;
+            Vector2 currentDirection = direction.Dequeue();
+            if (direction.Count == 0) {
+                direction.Enqueue(currentDirection);
+            }
+
             for (int i = 0; i < aliens.GetLength(1); i++)
             {
                 for (int j = 0; j < aliens.GetLength(0); j++)
                 {
-                    if(aliens[j,i] != null) {
+                    if (aliens[j, i] != null)
+                    {
                         aliens[j, i].MoveTo(currentDirection, alienSpeed);
-                    }  
+                    }
                 }
                 yield return new WaitForSeconds(movementDelay);
             }
-            
+
         }
-        
+
     }
 }

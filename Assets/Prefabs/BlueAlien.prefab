@@ -1,35 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5364789387704594732
+--- !u!1001 &5007831118646934691
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 650435999, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 650435999, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.28
-      objectReference: {fileID: 0}
     - target: {fileID: 8267007312597136424, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8267007312597136424, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267007312597136424, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267007312597136424, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.13
+      value: -6.8
       objectReference: {fileID: 0}
     - target: {fileID: 8267007312597136424, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.26
+      value: -0.71
       objectReference: {fileID: 0}
     - target: {fileID: 8267007312597136424, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.06737224
       objectReference: {fileID: 0}
     - target: {fileID: 8267007312597136424, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37,15 +37,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8267007312597136424, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8267007312597136424, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8267007312597136424, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8267007312597136424, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -62,40 +62,14 @@ PrefabInstance:
     - target: {fileID: 8267007312597136425, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4584de5ac7b7daa4096df1590be0c92e, type: 3}
+      objectReference: {fileID: 21300000, guid: e2e62d4b976c0e04cb6694e7d216fdb3, type: 3}
     - target: {fileID: 8267007312597136426, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: 745a908ab644e0e458d62b47a9630a92, type: 2}
+      objectReference: {fileID: 22100000, guid: c7a64400b52c0e1468a057dcbc7b6702, type: 2}
     - target: {fileID: 8267007312597136427, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_Name
-      value: PurpleAlien
+      value: BlueAlien
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
---- !u!1 &4092013803036886279 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8267007312597136427, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
-  m_PrefabInstance: {fileID: 5364789387704594732}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &4490020031248657089
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4092013803036886279}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

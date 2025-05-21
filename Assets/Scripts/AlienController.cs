@@ -21,12 +21,13 @@ public class AlienController : MonoBehaviour
         SetMatrix();
         SetInitialShooting();
         StartCoroutine(Movement());
+        StartCoroutine(SpeedIncrease());
     }
 
     public void OnAlienDeath(Vector2Int matrixPos)
     {
         Alien nextAlien = null;
-        for (int i = matrixPos.y+1; i < aliens.GetLength(1) && nextAlien == null; i++)
+        for (int i = matrixPos.y + 1; i < aliens.GetLength(1) && nextAlien == null; i++)
         {
             nextAlien = aliens[matrixPos.x, i];
         }
@@ -68,7 +69,8 @@ public class AlienController : MonoBehaviour
         while (true)
         {
             Vector2 currentDirection = direction.Dequeue();
-            if (direction.Count == 0) {
+            if (direction.Count == 0)
+            {
                 direction.Enqueue(currentDirection);
             }
 
@@ -86,5 +88,14 @@ public class AlienController : MonoBehaviour
 
         }
 
+    }
+
+    IEnumerator SpeedIncrease()
+    {
+        while (movementDelay > 0.001f)
+        {
+            movementDelay -= 0.00001f;
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }

@@ -40,6 +40,7 @@ public class Alien : MonoBehaviour, IShootable
     public void MoveTo(Vector2 direction, float speed)
     {
         rb.MovePosition(rb.position + direction * speed);
+        animator.SetTrigger("Move");
     }
 
     IEnumerator AlienShooting()

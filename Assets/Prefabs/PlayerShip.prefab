@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &523229699
 BoxCollider2D:
@@ -229,6 +229,7 @@ MonoBehaviour:
   bullet: {fileID: -2651163762449428943, guid: 7d3a7d7521a15c3429108b6f7ccc54ff, type: 3}
   bulletDirection: {x: 0, y: 1}
   bulletSpeed: 10
+  cooldown: 1
 --- !u!95 &-5761777753324034920
 Animator:
   serializedVersion: 5

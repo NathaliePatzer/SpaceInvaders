@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour, IShootable
 {
     public Team team;
     public float speed = 10;
+    float _speed;
     Vector2 movement;
     Rigidbody2D rb;
     Weapon weapon;
@@ -15,11 +16,13 @@ public class PlayerController : MonoBehaviour, IShootable
     public int lives = 3;
     Collider2D coll;
 
-    private void Awake() {
+    private void Awake()
+    {
         rb = GetComponent<Rigidbody2D>();
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
+        _speed = speed;
     }
 
     private void FixedUpdate() {
@@ -55,9 +58,12 @@ public class PlayerController : MonoBehaviour, IShootable
         return team;
     }
 
-    IEnumerator Invencible() {
+    IEnumerator Invencible()
+    {
         coll.enabled = false;
+        speed = 0;
         yield return new WaitForSeconds(1.5f);
         coll.enabled = true;
+        speed = _speed;
     }
 }

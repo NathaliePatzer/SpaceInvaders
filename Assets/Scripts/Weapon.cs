@@ -7,6 +7,8 @@ public class Weapon : MonoBehaviour
     public Bullet bullet;
     public Vector2 bulletDirection;
     public float bulletSpeed;
+    public float cooldown;
+    float lastShot;
     GameObject bulletHolder;
     IShootable shootable;
 
@@ -15,6 +17,11 @@ public class Weapon : MonoBehaviour
         shootable = GetComponentInParent<IShootable>();
     }
     public void ShootBullet() {
+        if (Time.time - lastShot < cooldown)
+        {
+            return;
+        }
+        lastShot = Time.time;
         Bullet instantieted = Instantiate(bullet, transform.position, Quaternion.identity, bulletHolder.transform);
         instantieted.direction = bulletDirection;
         instantieted.speed = bulletSpeed;

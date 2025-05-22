@@ -579,10 +579,10 @@ TextureImporter:
       name: Explosion_2
       rect:
         serializedVersion: 2
-        x: 361
-        y: 1337
-        width: 15
-        height: 15
+        x: 362
+        y: 1338
+        width: 13
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -600,10 +600,10 @@ TextureImporter:
       name: Explosion_3
       rect:
         serializedVersion: 2
-        x: 380
-        y: 1337
-        width: 15
-        height: 15
+        x: 382
+        y: 1339
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -621,10 +621,10 @@ TextureImporter:
       name: Explosion_4
       rect:
         serializedVersion: 2
-        x: 399
-        y: 1337
-        width: 15
-        height: 15
+        x: 402
+        y: 1340
+        width: 9
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -642,10 +642,10 @@ TextureImporter:
       name: Explosion_5
       rect:
         serializedVersion: 2
-        x: 418
-        y: 1337
-        width: 15
-        height: 15
+        x: 422
+        y: 1341
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -663,10 +663,10 @@ TextureImporter:
       name: Explosion_6
       rect:
         serializedVersion: 2
-        x: 437
-        y: 1337
-        width: 15
-        height: 15
+        x: 442
+        y: 1342
+        width: 5
+        height: 5
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -684,10 +684,10 @@ TextureImporter:
       name: Explosion_7
       rect:
         serializedVersion: 2
-        x: 456
-        y: 1337
-        width: 15
-        height: 15
+        x: 462
+        y: 1343
+        width: 3
+        height: 3
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

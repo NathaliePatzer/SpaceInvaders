@@ -29,12 +29,16 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         
         IShootable shootable = collision.GetComponent<IShootable>();
-        if(shootable != null) { 
-            if(shootable.GetTeam() != team) {
-                animator.SetTrigger("Hit");
+        if(shootable != null) {
+            if (shootable.GetTeam() != team)
+            {
                 shootable.OnShot(this);
-            }           
-            return;
+            }
+            else
+            {
+                return;
+            }          
+            
         }
         speed = 0;
         animator.SetTrigger("Hit");

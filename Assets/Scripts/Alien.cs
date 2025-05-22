@@ -30,6 +30,7 @@ public class Alien : MonoBehaviour, IShootable
         animator.SetTrigger("Death");
         GetComponent<Collider2D>().enabled = false;
         AlienController.Instance.OnAlienDeath(matrixPos);
+        ScoreSystem.Instance.AddScore(10);
     }
 
     public void StartShooting()

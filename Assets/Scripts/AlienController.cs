@@ -5,6 +5,7 @@ using System.ComponentModel.Design.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
+using Random = UnityEngine.Random;
 
 public class AlienController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class AlienController : MonoBehaviour
     public float movementDelay = 0.1f;
     public Queue<Vector2> direction;
     public Alien[,] aliens = new Alien[15, 5];
+    public SpecialAlien specialAlienPrefab;
+    public List<Transform> walls;
     void Awake()
     {
         direction = new Queue<Vector2>();
@@ -22,6 +25,7 @@ public class AlienController : MonoBehaviour
         SetInitialShooting();
         StartCoroutine(Movement());
         StartCoroutine(SpeedIncrease());
+        StartCoroutine(SpecialAlienRoutine());
     }
 
     public void OnAlienDeath(Vector2Int matrixPos)
@@ -96,6 +100,20 @@ public class AlienController : MonoBehaviour
         {
             movementDelay -= 0.00001f;
             yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    IEnumerator SpecialAlienRoutine()
+    {
+        while (true)
+        {
+            int rand = Random.Range(-3, 7);
+            yield return new WaitForSeconds(10 + rand);
+            int side = Random.Range(0, 2);
+            int otherside = 1 - side;
+            Vector3 position = new Vector3(walls[side].position.x, 4.0f, 0);
+            SpecialAlien specialAlien = Instantiate(specialAlienPrefab, position, Quaternion.identity, this.transform);
+            specialAlien.StartMove(walls[otherside]);
         }
     }
 }

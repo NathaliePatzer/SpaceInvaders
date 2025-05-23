@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 650435997, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
+      propertyPath: scoreValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 650435999, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 0.14999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 650435999, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.y
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 650435999, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 0.14999999
+      objectReference: {fileID: 0}
     - target: {fileID: 650435999, guid: a50a569462e7e5440a65663032adf4a1, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.28

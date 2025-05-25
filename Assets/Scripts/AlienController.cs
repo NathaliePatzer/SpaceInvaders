@@ -23,6 +23,9 @@ public class AlienController : MonoBehaviour
         Instance = this;
         SetMatrix();
         SetInitialShooting();
+    }
+    void Start()
+    {
         StartCoroutine(Movement());
         StartCoroutine(SpeedIncrease());
         StartCoroutine(SpecialAlienRoutine());

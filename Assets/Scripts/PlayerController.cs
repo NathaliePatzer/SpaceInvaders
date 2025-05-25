@@ -46,12 +46,17 @@ public class PlayerController : MonoBehaviour, IShootable
         }
     }
 
-    public void OnShot(Bullet bullet) {
+    public void OnShot(Bullet bullet)
+    {
         bullet.speed = 0;
         lives--;
         animator.SetTrigger("Death");
-        animator.SetInteger("Lives", lives);   
-        StartCoroutine(Invencible());  
+        animator.SetInteger("Lives", lives);
+        StartCoroutine(Invencible());
+        if (lives <= 0)
+        {
+            GameOver.Instance.OnGameOver(2000);
+        } 
     }
 
     public Team GetTeam() {

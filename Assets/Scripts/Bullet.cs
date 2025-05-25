@@ -27,7 +27,10 @@ public class Bullet : MonoBehaviour
         rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
     }
     private void OnTriggerEnter2D(Collider2D collision) {
-        
+        if (collision.GetComponent<InvadedTrigger>())
+        {
+            return;
+        }
         IShootable shootable = collision.GetComponent<IShootable>();
         if(shootable != null) {
             if (shootable.GetTeam() != team)

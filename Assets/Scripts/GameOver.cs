@@ -9,19 +9,27 @@ public class GameOver : MonoBehaviour
 {
     public static GameOver Instance;
     public Text gameOverText;
+    bool gameOvering;
     void Awake()
     {
         if (Instance != null)
-        {
             Destroy(this.gameObject);
-        }
+
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
-    [ContextMenu("Call game over")]
-    public async void OnGameOver()
+    public async void OnGameOver(int delay)
     {
+        if (gameOvering)
+        {
+            return;
+        }
+        else
+        {
+            gameOvering = true;
+        }
         Debug.Log("Game over");
+        await Task.Delay(delay);
         gameOverText.enabled = true;
         Time.timeScale = 0;
         await Task.Delay(2000);

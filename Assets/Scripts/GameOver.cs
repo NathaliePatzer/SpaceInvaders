@@ -28,6 +28,7 @@ public class GameOver : MonoBehaviour
         {
             gameOvering = true;
         }
+        ScoreSystem.Instance.SaveHiScore();
         Debug.Log("Game over");
         await Task.Delay(delay);
         gameOverText.enabled = true;
@@ -40,5 +41,8 @@ public class GameOver : MonoBehaviour
         Debug.Log("Recarregando");
         yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
         Time.timeScale = 1;
+        gameOverText = GameObject.Find("Canvas/GameOvertxt").GetComponent<Text>();
+        gameOvering = false;
+        Instance = this;
     }
 }

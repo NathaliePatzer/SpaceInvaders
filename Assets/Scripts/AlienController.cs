@@ -16,10 +16,12 @@ public class AlienController : MonoBehaviour
     public Alien[,] aliens = new Alien[15, 5];
     public SpecialAlien specialAlienPrefab;
     public List<Transform> walls;
+    int remainingAliens;
     void Awake()
     {
         direction = new Queue<Vector2>();
         direction.Enqueue(Vector2.right);
+        remainingAliens = aliens.GetLength(0) * aliens.GetLength(1);
         Instance = this;
         SetMatrix();
         SetInitialShooting();
@@ -27,13 +29,19 @@ public class AlienController : MonoBehaviour
     void Start()
     {
         StartCoroutine(Movement());
-        StartCoroutine(SpeedIncrease());
         StartCoroutine(SpecialAlienRoutine());
     }
 
     public void OnAlienDeath(Vector2Int matrixPos)
     {
         Alien nextAlien = null;
+        remainingAliens--;
+        movementDelay -= 0.0025f;
+        if (remainingAliens <= 0)
+        {
+            GameOver.Instance.OnGameOver(1000);
+        }
+
         for (int i = matrixPos.y + 1; i < aliens.GetLength(1) && nextAlien == null; i++)
         {
             nextAlien = aliens[matrixPos.x, i];
@@ -95,15 +103,6 @@ public class AlienController : MonoBehaviour
 
         }
 
-    }
-
-    IEnumerator SpeedIncrease()
-    {
-        while (movementDelay > 0.001f)
-        {
-            movementDelay -= 0.00001f;
-            yield return new WaitForSeconds(0.01f);
-        }
     }
 
     IEnumerator SpecialAlienRoutine()

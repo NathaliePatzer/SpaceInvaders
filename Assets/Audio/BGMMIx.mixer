@@ -1,5 +1,27 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-3335835967742518509
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: fa729adfc9eadeb4698de8ce3b09f634
+  m_EffectName: Pitch Shifter
+  m_MixLevel: 2bef44fba9ecf0d46b02a806084e1097
+  m_Parameters:
+  - m_ParameterName: Pitch
+    m_GUID: 9f318534cd3e2a44d845637d489c185f
+  - m_ParameterName: FFT size
+    m_GUID: 3765a7c602fe9534ba973112b80bcc2d
+  - m_ParameterName: Overlap
+    m_GUID: ef54dccd4a99e0c4781d432ad0354ab2
+  - m_ParameterName: Max channels
+    m_GUID: 747823bb552095d45b4f7092c7f2d501
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -15,7 +37,9 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 9f318534cd3e2a44d845637d489c185f
+    name: PitchValue
   m_AudioMixerGroupViews:
   - guids:
     - 7f249704e4cb3954fbe3a0c9d0cc8f62
@@ -37,6 +61,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
+  - {fileID: -3335835967742518509}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

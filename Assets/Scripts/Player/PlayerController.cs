@@ -8,13 +8,14 @@ public class PlayerController : MonoBehaviour, IShootable
 {
     public Team team;
     public float speed = 10;
+    public int lives = 3;
     float _speed;
     Vector2 movement;
     Rigidbody2D rb;
     Weapon weapon;
     Animator animator;
-    public int lives = 3;
     Collider2D coll;
+    AudioSource audioSource;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour, IShootable
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
         _speed = speed;
     }
 
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour, IShootable
         lives--;
         animator.SetTrigger("Death");
         animator.SetInteger("Lives", lives);
+        audioSource.Play();
         StartCoroutine(Invencible());
         if (lives <= 0)
         {

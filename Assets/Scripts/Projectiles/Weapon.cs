@@ -11,12 +11,16 @@ public class Weapon : MonoBehaviour
     float lastShot;
     GameObject bulletHolder;
     IShootable shootable;
+    AudioSource audioSource;
 
-    private void Awake() {
+    private void Awake()
+    {
         bulletHolder = GameObject.Find("BulletHolder");
         shootable = GetComponentInParent<IShootable>();
+        audioSource = GetComponent<AudioSource>();
     }
-    public void ShootBullet() {
+    public void ShootBullet()
+    {
         if (Time.time - lastShot < cooldown)
         {
             return;
@@ -27,5 +31,11 @@ public class Weapon : MonoBehaviour
         instantieted.speed = bulletSpeed;
         instantieted.team = shootable.GetTeam();
         instantieted.enabled = true;
+
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+
     }
 }

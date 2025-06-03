@@ -9,33 +9,26 @@ public class Weapon : MonoBehaviour
     public float bulletSpeed;
     public float cooldown;
     float lastShot;
-    GameObject bulletHolder;
     IShootable shootable;
     AudioSource audioSource;
-
     private void Awake()
     {
-        bulletHolder = GameObject.Find("BulletHolder");
         shootable = GetComponentInParent<IShootable>();
         audioSource = GetComponent<AudioSource>();
     }
     public void ShootBullet()
     {
         if (Time.time - lastShot < cooldown)
-        {
             return;
-        }
         lastShot = Time.time;
-        Bullet instantieted = Instantiate(bullet, transform.position, Quaternion.identity, bulletHolder.transform);
-        instantieted.direction = bulletDirection;
-        instantieted.speed = bulletSpeed;
-        instantieted.team = shootable.GetTeam();
-        instantieted.enabled = true;
+        Bullet instantiated = PoolingSystem.Instance.GetBullet(bullet);
+        instantiated.direction = bulletDirection;
+        instantiated.speed = bulletSpeed;
+        instantiated.team = shootable.GetTeam();
+        instantiated.transform.position = transform.position;
+        instantiated.gameObject.SetActive(true);
 
         if (audioSource != null)
-        {
             audioSource.Play();
-        }
-
     }
 }

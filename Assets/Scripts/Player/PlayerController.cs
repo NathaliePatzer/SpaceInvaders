@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour, IShootable
     {
         bullet.speed = 0;
         lives--;
+        LivesHearts.Instance.UpdateHearts(lives);
         animator.SetTrigger("Death");
         animator.SetInteger("Lives", lives);
         audioSource.Play();

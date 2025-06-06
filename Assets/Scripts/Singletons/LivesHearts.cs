@@ -23,7 +23,7 @@ public class LivesHearts : MonoBehaviour
             if (i >= livesLeft)
             {
                 heartAnimators[i].SetTrigger("Disappear");
-                Debug.Log("Trigger enviado para coração " + i);
+                //Debug.Log("Trigger enviado para coração " + i);
             }
         }
     }

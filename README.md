@@ -1,4 +1,4 @@
-# 🚀 Space Invaders - Unity Edition 🎮
+# 🚀 Space Invaders 
 
 Ei, gamer! Seja bem-vindo ao **Space Invaders** — uma versão fresquinha e cheia de ação do clássico jogo arcade, feita com muito carinho em Unity e C#. Aqui a missão é simples: proteger a nave, derrubar todos os aliens e bater aquele recorde! 👾✨
 

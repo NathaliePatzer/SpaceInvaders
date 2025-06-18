@@ -17,9 +17,10 @@ Nesse game, você controla uma nave que se move só pra esquerda e direita, tent
 
 Tá esperando o quê? Para começar:
 
-1. Baixe a pasta **`Build`** aqui no repositório.  
-2. Abra o arquivo **`SpaceInvaders.exe`** que está dentro da pasta.  
-3. Se prepare pra muita invasão, melhor dizendo... Diversão! 🚀
+1. Baixe a pasta **`Build`** aqui no repositório.
+2. Descompacte o conteúdo em um local seguro da galáxia.   
+3. Abra o arquivo **`SpaceInvaders.exe`** que está dentro da pasta.  
+4. Se prepare pra muita invasão, melhor dizendo... Diversão! 🚀
 
 ## ⌨️ Controles
 
